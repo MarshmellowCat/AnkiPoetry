@@ -1,5 +1,7 @@
 ﻿using System.Text;
 
+//Hello world. Claire here. I'm learning how VSC talks to Github.
+
 namespace AnkiPoetry.Engine;
 
 public abstract class BaseCreator<T>
