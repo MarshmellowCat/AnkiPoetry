@@ -61,6 +61,7 @@ public abstract class BaseCreator<T>
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
         // This influences header content
+        // testing!
         starsHtml = "<br><br>";
         
         return $"<div class=\"header\">{chunk.Header}{starsHtml}</div>";
