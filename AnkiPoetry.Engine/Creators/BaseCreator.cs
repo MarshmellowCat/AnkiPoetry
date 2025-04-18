@@ -59,8 +59,9 @@ public abstract class BaseCreator<T>
             var starsText = String.Join("", Enumerable.Range(0, total).Select(a => a == stars ? "★" : "☆"));
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
-        }        
-
+        }
+        starsHtml = "";
+        
         return $"<div class=\"header\">{chunk.Header}{starsHtml}</div>";
     }
 
