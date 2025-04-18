@@ -60,7 +60,8 @@ public abstract class BaseCreator<T>
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
-        starsHtml = "";
+        // TODO: Claire here
+        starsHtml = "<br><br>";
         
         return $"<div class=\"header\">{chunk.Header}{starsHtml}</div>";
     }
