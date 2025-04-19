@@ -11,7 +11,8 @@ public abstract class BaseCreator<T>
     public T[] Run(Chunk[] chunks, Parameters parameters)
     {
         if (parameters.Colors <= 0)
-            parameters.Colors = 1;
+            parameters.Colors = 0;
+//changed colors parameters to be able to be zero; made it stop automatically changing 0 to 1
 
         return chunks.SelectMany(a => CardFromChunk(a, parameters)).ToArray();
     }
