@@ -84,6 +84,7 @@ public static partial class LoaderText
         return new([.. sections], 100);
     }
 
+//changed IsNotMy symbol from "@" to "-"
     private static bool IsNotMy(string text)
-        => text.StartsWith('@');
+        => text.StartsWith('-');
 }
