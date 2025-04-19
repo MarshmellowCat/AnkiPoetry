@@ -37,8 +37,7 @@ public partial class WordCreator : BaseCreator<Card>
     {
         var cloze_num = 1;
         var cloze = MakeCloze(line.Text, ref cloze_num);
-        cloze = "";
-        var formatted = GetLineText(cloze, line, parameters);
+        var formatted = GetLineText(line.Text, line, parameters);
         // var formatted = "";
 
         if (lineNext is not null && lineNext.Text != "" && !lineNext.NotMy)
