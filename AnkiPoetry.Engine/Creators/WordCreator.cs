@@ -36,9 +36,9 @@ public partial class WordCreator : BaseCreator<Card>
     protected Card CreateCard(string number, string beginning, string ending, MyLine line, MyLine? lineNext, Parameters parameters)
     {
         var cloze_num = 1;
-        // var cloze = MakeCloze(line.Text, ref cloze_num);
-        // var formatted = GetLineText(cloze, line, parameters);
-        var formatted = "";
+        var cloze = MakeCloze(line.Text, ref cloze_num);
+        var formatted = GetLineText(cloze, line, parameters);
+        // var formatted = "";
 
         if (lineNext is not null && lineNext.Text != "" && !lineNext.NotMy)
         {
@@ -51,7 +51,8 @@ public partial class WordCreator : BaseCreator<Card>
                 ending += "<hr>";
         }
 
-        return new(number, beginning + formatted + ending);
+        // return new(number, beginning + formatted + ending);
+        return new(number, beginning + ending);
     }
 
     private static string MakeCloze(string text, ref int cloze_num)
@@ -65,7 +66,7 @@ public partial class WordCreator : BaseCreator<Card>
             sb.Append(text[last_word_end..match.Index]);
             sb.Append($"{{{{c{cloze_num}::{match.Value}}}}}");
 
-            cloze_num++; // cloze_num += 1, cloze_num = cloze_num + 1
+            cloze_num++; // cloze_num += 1, new cloze_num = prev. cloze_num + 1
 
             last_word_end = match.Index + match.Length;
         }
