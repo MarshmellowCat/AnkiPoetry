@@ -13,7 +13,7 @@ public abstract class BaseCreator<T>
         if (parameters.Colors <= 0)
             parameters.Colors = 0;
 //changed colors parameters to be able to be zero; made it stop automatically changing 0 to 1
-
+// ugh when colors is set to 0 the GUI returns an error; need to investigate
         return chunks.SelectMany(a => CardFromChunk(a, parameters)).ToArray();
     }
 
@@ -42,7 +42,9 @@ public abstract class BaseCreator<T>
 
     protected static string CreateHeader(Chunk chunk, Parameters parameters)
     {
-        var starsHtml = "";
+
+        //made starsHtmL always have two breaks even if StarsMode isn't on - just for safety
+        var starsHtml = "<br><br>";
 
         if (parameters.StarMode != StarMode.None)
         {
@@ -63,6 +65,7 @@ public abstract class BaseCreator<T>
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
+        
         // made the starsHtml always just be two breaks; no more stars yay!
         starsHtml = "<br><br>";
         
