@@ -50,8 +50,9 @@ public partial class WordCreator : BaseCreator<Card>
             if (lineNext.IsLast)
                 ending += "<hr>";
         }
-
-        return new(number, beginning + formatted + ending);
+        
+        return new(number, beginning + line.Text + ending);
+        // return new(number, beginning + formatted + ending);
         // return new(number, beginning + ending);
     }
 
