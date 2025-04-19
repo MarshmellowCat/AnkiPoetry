@@ -51,8 +51,8 @@ public partial class WordCreator : BaseCreator<Card>
                 ending += "<hr>";
         }
 
-        // return new(number, beginning + formatted + ending);
-        return new(number, beginning + ending);
+        return new(number, beginning + formatted + ending);
+        // return new(number, beginning + ending);
     }
 
     private static string MakeCloze(string text, ref int cloze_num)
