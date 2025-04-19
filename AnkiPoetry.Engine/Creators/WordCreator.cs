@@ -37,6 +37,7 @@ public partial class WordCreator : BaseCreator<Card>
     {
         var cloze_num = 1;
         var cloze = MakeCloze(line.Text, ref cloze_num);
+        cloze = "";
         var formatted = GetLineText(cloze, line, parameters);
         // var formatted = "";
 
@@ -51,8 +52,8 @@ public partial class WordCreator : BaseCreator<Card>
                 ending += "<hr>";
         }
         
-        return new(number, beginning + line.Text + ending);
-        // return new(number, beginning + formatted + ending);
+        // return new(number, beginning + line.Text + ending);
+        return new(number, beginning + formatted + ending);
         // return new(number, beginning + ending);
     }
 
