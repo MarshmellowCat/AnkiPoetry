@@ -86,7 +86,7 @@ public partial class WordCreator : BaseCreator<Card>
 
 
 //CG0419 I think this changes the letter allowed size for words to be truncated.. Gonna try to change to 7 and see what happens
-            while (i < matches.Count && word.Count(char.IsLetter) < 7)
+            while (i < matches.Count && word.Count(char.IsLetter) < 10)
             {
                 var match = matches[i];
                 word = text[0..(match.Index + match.Length)];
