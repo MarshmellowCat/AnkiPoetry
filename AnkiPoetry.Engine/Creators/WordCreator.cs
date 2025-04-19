@@ -85,8 +85,8 @@ public partial class WordCreator : BaseCreator<Card>
             var word = "";
 
 
-//CG0419 I think this changes the letter allowed size for words to be truncated.. Gonna try to change to 7 and see what happens
-            while (i < matches.Count && word.Count(char.IsLetter) < 10)
+//CG0419 I think this changes the letter allowed size for words to be truncated.. Gonna try to change to 5 and see what happens
+            while (i < matches.Count && word.Count(char.IsLetter) < 5)
             {
                 var match = matches[i];
                 word = text[0..(match.Index + match.Length)];
@@ -97,7 +97,7 @@ public partial class WordCreator : BaseCreator<Card>
                 word += "...";
 
 //removing annoying [word] prompt in NextLineInitial cloze
-            sb.Append($"{{{{c{cloze_num}::{word}::word}}}}");
+            sb.Append($"{{{{c{cloze_num}::{word}}}}}");
 
             cloze_num++;
         }
