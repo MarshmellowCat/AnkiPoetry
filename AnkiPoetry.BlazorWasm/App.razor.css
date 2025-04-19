@@ -72,6 +72,10 @@
     border-top: 1px solid white;
 }
 
+/* commenting out all colors */
+
+
+/*
 ::deep.card .line0 {
     color: #FF6666;
 }
@@ -98,4 +102,4 @@
 
 ::deep.card .line6 {
     color: #FF66FF;
-}
+}*/
