@@ -19,9 +19,11 @@ public partial class WordCreator : BaseCreator<Card>
                 var beginning = CreateHeader(chunk, parameters);// + GetLineText(chunk.Lines[i].Text, chunk.Lines[i], parameters);
 
                 if (to.IsFirst)
-                    beginning += "<hr>";
+                    // beginning += "<hr>";
+                    beginning;
 
-                var ending = to.IsLast ? "<hr>" : "";
+                // var ending = to.IsLast ? "<hr>" : "";
+                var ending = "";
 
                 var nextLine = i < chunk.Lines.Length - 1
                     ? chunk.Lines[i + 1]
