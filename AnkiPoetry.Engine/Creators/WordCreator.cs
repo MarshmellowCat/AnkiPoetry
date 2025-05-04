@@ -16,7 +16,7 @@ public partial class WordCreator : BaseCreator<Card>
                 var number = 0;
                 var beginning = CreateHeader(chunk, parameters);
                 var ending = "";
-                var to = ""
+                var to = "";
                 var nextLine = "";
                 var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
 
