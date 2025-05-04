@@ -90,8 +90,8 @@ public abstract class BaseCreator<T>
         var number = parameters.LineNumbers
             ? $"{(parameters.Continuous ? line.ContinuousNumber : line.LineNumber),3}. "
             : "";
-
-        return number + text; //CLAIRE
+        
+        return "<div>" + number + text + "</div>"; //CLAIRE
 
         // Commented out to stop the line color br
         // return ColorLine(
