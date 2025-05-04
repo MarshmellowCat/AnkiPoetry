@@ -7,10 +7,22 @@ public partial class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 1; i < chunk.Lines.Length; ++i)
+        for (var i = 0; i < chunk.Lines.Length; ++i)
         {
-            var to = chunk.Lines[i];
+            
 
+            if (i == 0 and !to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
+            {
+                var number = 0;
+                var beginning = CreateHeader(chunk, parameters);
+                var ending = "";
+                var to = ""
+                var nextLine = "";
+                var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
+
+                yield return card;
+            }
+            var to = chunk.Lines[i];
             if (!to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
             {
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
