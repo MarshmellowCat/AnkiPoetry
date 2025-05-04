@@ -16,7 +16,7 @@ public partial class WordCreator : BaseCreator<Card>
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
                 // var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..i], parameters);
-                var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[i], parameters);
+                var beginning = CreateHeader(chunk, parameters) + GetLineText(chunk.Lines[i].Text, chunk.Lines[i], parameters);
 
                 if (to.IsFirst)
                     beginning += "<hr>";
