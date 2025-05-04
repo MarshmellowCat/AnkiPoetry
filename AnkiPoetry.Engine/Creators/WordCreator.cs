@@ -11,18 +11,18 @@ public partial class WordCreator : BaseCreator<Card>
         {
             var to = chunk.Lines[i];
 
-            if (i == 0)
-            {
-                var number = 0;
-                var beginning = CreateHeader(chunk, parameters);
-                var ending = "";
-                var nextLine = "";
-                var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
+            // if (i == 0)
+            // {
+            //     var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
+            //     var beginning = CreateHeader(chunk, parameters);
+            //     var ending = "";
+            //     var nextLine = "";
+            //     var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
 
-                yield return card;
-            }
+            //     yield return card;
+            // }
             
-            if (i != 0 && !to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
+            if (!to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
             {
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
