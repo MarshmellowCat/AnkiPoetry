@@ -11,7 +11,7 @@ public partial class WordCreator : BaseCreator<Card>
         {
             
 
-            if (i == 0 and !to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
+            if (i == 0)
             {
                 var number = 0;
                 var beginning = CreateHeader(chunk, parameters);
@@ -23,7 +23,7 @@ public partial class WordCreator : BaseCreator<Card>
                 yield return card;
             }
             var to = chunk.Lines[i];
-            if (!to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
+            if (i != 0 && !to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
             {
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
