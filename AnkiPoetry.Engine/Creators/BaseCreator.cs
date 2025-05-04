@@ -91,9 +91,12 @@ public abstract class BaseCreator<T>
             ? $"{(parameters.Continuous ? line.ContinuousNumber : line.LineNumber),3}. "
             : "";
 
-        return ColorLine(
-            number + text,
-            (line.LineNumber - 1), //to make first (zero) line violet not red
-            parameters.Colors);
+        return number + text; //CLAIRE
+
+        // Commented out to stop the line color br
+        // return ColorLine(
+        //     number + text,
+        //     (line.LineNumber - 1), //to make first (zero) line violet not red
+        //     parameters.Colors);
     }
 }
