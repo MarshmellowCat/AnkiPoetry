@@ -121,7 +121,7 @@ public partial class WordCreator : BaseCreator<Card>
                 word += "...";
 
 //removing annoying [word] prompt in NextLineInitial cloze
-            sb.Append($"{{{{c{cloze_num}::{word}::w}}}}");
+            sb.Append($"{{{{c{cloze_num}::{word}:: w }}}}");
 
             cloze_num++;
         }
