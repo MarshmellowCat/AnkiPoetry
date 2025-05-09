@@ -110,7 +110,8 @@ public partial class WordCreator : BaseCreator<Card>
 
         //CG0419 This changes the allowed characters limit when truncating words.. Gonna try to change to 5 and see what happens
         //CG0419 5 seems a good number!
-            while (i < matches.Count && word.Count(char.IsLetter) < 5)
+        //CG0509 trying 6!
+            while (i < matches.Count && word.Count(char.IsLetter) < 6)
             {
                 var match = matches[i];
                 word = text[0..(match.Index + match.Length)];
