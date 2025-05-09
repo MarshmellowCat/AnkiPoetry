@@ -10,10 +10,8 @@ public abstract class BaseCreator<T>
 
     public T[] Run(Chunk[] chunks, Parameters parameters)
     {
-        if (parameters.Colors <= 0)
-            parameters.Colors = 0;
-//changed colors parameters to be able to be zero; made it stop automatically changing 0 to 1
-// ugh when colors is set to 0 the GUI returns an error; need to investigate
+        if (parameters.Colors <= 1)
+            parameters.Colors = 1;
         return chunks.SelectMany(a => CardFromChunk(a, parameters)).ToArray();
     }
 
