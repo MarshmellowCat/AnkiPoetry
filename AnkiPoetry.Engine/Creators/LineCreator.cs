@@ -15,8 +15,8 @@ public class LineCreator : BaseCreator<Card>
                 var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
                 // var beginning = CreateHeader(chunk, parameters);
 
-                // if (to.IsFirst)
-                //     beginning += "<hr>";
+                if (to.IsFirst)
+                    beginning += "<hr>";
 
                 // var ending = to.IsLast ? "<hr>" : "";
                 var ending = "";
