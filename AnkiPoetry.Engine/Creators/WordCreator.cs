@@ -120,7 +120,6 @@ public partial class WordCreator : BaseCreator<Card>
             if (i < matches.Count)
                 word += "...";
 
-//removing annoying [word] prompt in NextLineInitial cloze
             sb.Append($"{{{{c{cloze_num}::{word}:: w }}}}");
 
             cloze_num++;
