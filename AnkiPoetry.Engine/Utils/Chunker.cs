@@ -113,7 +113,8 @@ public static class Chunker
     {
         string[] elements = [section.SectionName, song.SongName];
         var title = String.Join(", ", elements.Where(a => !String.IsNullOrEmpty(a)));
-        return $"{title} ({(screen_number + 1)})";
+        // return $"{title} ({(screen_number + 1)})";
+        return $"{title}"; // Claire this line removes the chunk number
     }
 }
 
