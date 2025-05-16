@@ -35,17 +35,24 @@ public partial class PageCreator : BaseCreator<Card>
         return new(number + suffix, sb.ToString());
     }
 
-    private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, string number)
-        => Create(chunk, parameters, header, number, "",
-            (index, line) => MakeCloze((index % 2) == 0 ? 1 : 2, line.Text));
 
-    private Card CreateFirstLetter(Chunk chunk, Parameters parameters, string header, string number)
-        => Create(chunk, parameters, header, number, "_first",
-            (index, line) => index > 0 ? MakeClozeLeaveFirstLetter(1, line.Text) : line.Text);
-
-    private Card CreateWhole(Chunk chunk, Parameters parameters, string header, string number)
+//3
+ private Card CreateWhole(Chunk chunk, Parameters parameters, string header, string number)
         => Create(chunk, parameters, header, number, "_whole",
             (index, line) => index > 0 ? MakeCloze(1, line.Text) : line.Text);
+
+    
+//2
+    private Card CreateFirstLetter(Chunk chunk, Parameters parameters, string header, string number)
+        => Create(chunk, parameters, header, number, "_initial",
+            (index, line) => index > 0 ? MakeClozeLeaveFirstLetter(1, line.Text) : line.Text);
+
+//1
+private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, string number)
+        => Create(chunk, parameters, header, number, "_odd_even",
+            (index, line) => MakeCloze((index % 2) == 0 ? 1 : 2, line.Text));
+
+
 
     private static string AddHr(MyLine line, string text) =>
        $"{(line.IsFirst ? "<hr>" : "")}{text}{(line.IsLast ? "<hr>" : "")}";
@@ -57,6 +64,15 @@ public partial class PageCreator : BaseCreator<Card>
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return text[0..n] + $"{{{{c{cloze_num}::{text[n..]}}}}}";
+        return text[0..n] + $"{{{{c{cloze_num}::{text[0..n]}}}}}";
     }
-}
+}/*  ORIGINAL MakeClozeLeaveFirstLetter
+
+private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
+    {
+        var matches = Regexes.RegexWord().Matches(text);
+        var n = matches[0].Index + 1;
+        return text[0..n] + $"{{{{c{cloze_num}::{text[n..]}}}}}";
+
+
+        */
