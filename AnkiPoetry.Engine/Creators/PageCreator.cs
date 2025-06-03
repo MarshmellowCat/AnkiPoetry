@@ -48,12 +48,12 @@ public partial class PageCreator : BaseCreator<Card>
             (index, line) => index > 0 ? MakeClozeLeaveFirstLetter(1, line.Text) : line.Text);
 
 //1
-/*
+
 private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, string number)
         => Create(chunk, parameters, header, number, "_odd_even",
             (index, line) => MakeCloze((index % 2) == 0 ? 1 : 2, line.Text));
 
-*/
+
 
     private static string AddHr(MyLine line, string text) =>
        $"{(line.IsFirst ? "<hr>" : "")}{text}{(line.IsLast ? "<hr>" : "")}";
