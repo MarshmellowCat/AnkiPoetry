@@ -48,11 +48,12 @@ public partial class PageCreator : BaseCreator<Card>
             (index, line) => index > 0 ? MakeClozeLeaveFirstLetter(1, line.Text) : line.Text);
 
 //1
+/*
 private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, string number)
         => Create(chunk, parameters, header, number, "_odd_even",
             (index, line) => MakeCloze((index % 2) == 0 ? 1 : 2, line.Text));
 
-
+*/
 
     private static string AddHr(MyLine line, string text) =>
        $"{(line.IsFirst ? "<hr>" : "")}{text}{(line.IsLast ? "<hr>" : "")}";
@@ -64,7 +65,7 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return $"{{{{c{cloze_num}::{text}:: {text[0..n]} }}}}";
+        return $"{{{{c{cloze_num}::{text} :: {text[0..n]} }}}}";
 
 
         // 1. A [A]
