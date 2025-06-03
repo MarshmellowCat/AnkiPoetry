@@ -65,7 +65,7 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return $"{{{{c{cloze_num}::{text} :: {text[0..n]} }}}}";
+        return $"{{{{c{cloze_num}::{text}:: {text[0..n]} }}}}";
 
 
         // 1. A [A]
