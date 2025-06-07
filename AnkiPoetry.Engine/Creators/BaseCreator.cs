@@ -35,7 +35,7 @@ public abstract class BaseCreator<T>
     }
 
     protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
-        => $"Dorinda 1.04.{lineNumber:000}";
+        => $"Dorinda {lineNumber:000}";
         
 
     /* ORIGINAL Cart Title  01.01.001, etc
