@@ -1,6 +1,5 @@
 ﻿using System.Text;
 
-//Hello world. Claire here. I'm learning how VSC talks to Github.
 
 namespace AnkiPoetry.Engine;
 
@@ -36,7 +35,7 @@ public abstract class BaseCreator<T>
     }
 
     protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
-        => $"{sectionNumber:00}.hello!.{lineNumber:000}";
+        => $"Dorinda 1.04.{lineNumber:000}";
         
 
     /* ORIGINAL Cart Title  01.01.001, etc
