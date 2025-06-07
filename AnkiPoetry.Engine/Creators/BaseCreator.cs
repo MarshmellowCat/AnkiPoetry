@@ -36,7 +36,18 @@ public abstract class BaseCreator<T>
     }
 
     protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
+        => $"{sectionNumber:00}.{hello!}.{lineNumber:000}";
+        
+
+    /* ORIGINAL Cart Title  01.01.001, etc
+
+    protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
         => $"{sectionNumber:00}.{songNumber:00}.{lineNumber:000}";
+    */
+
+
+
+
 
     protected static string CreateHeader(Chunk chunk, Parameters parameters)
     {
@@ -63,10 +74,10 @@ public abstract class BaseCreator<T>
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
-        
+
         // made the starsHtml always just be two breaks; no more stars yay!
         starsHtml = "<br><br>";
-        
+
         return $"<div class=\"header\">{chunk.Header}{starsHtml}</div>";
     }
 
