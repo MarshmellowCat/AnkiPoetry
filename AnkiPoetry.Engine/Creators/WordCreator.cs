@@ -113,8 +113,9 @@ public partial class WordCreator : BaseCreator<Card>
             //CG0509 trying 6!
             //CG0607 trying 15!
             //CG0609 trying 20!
+            //CG0614 going back to 6!
             
-            while (i < matches.Count && word.Count(char.IsLetter) < 20)
+            while (i < matches.Count && word.Count(char.IsLetter) < 6)
             {
                 var match = matches[i];
                 word = text[0..(match.Index + match.Length)];
