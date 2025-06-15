@@ -56,7 +56,7 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
 
 
     private static string AddHr(MyLine line, string text) =>
-       $"{(line.IsFirst ? "<hr>" : "")}{text}{(line.IsLast ? "<hr>" : "")}";
+       $"{(line.IsFirst ? "" : "")}{text}{(line.IsLast ? "" : "")}";
 
     private static string MakeCloze(int cloze_num, string text)
         => $"{{{{c{cloze_num}::{text}}}}}";
