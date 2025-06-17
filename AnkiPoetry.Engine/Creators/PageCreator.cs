@@ -11,7 +11,7 @@ public partial class PageCreator : BaseCreator<Card>
         var header = CreateHeader(chunk, parameters);
         var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, from.LineNumber);
 
-        yield return CreateOddEven(chunk, parameters, header, number);
+        // yield return CreateOddEven(chunk, parameters, header, number);
         yield return CreateFirstLetter(chunk, parameters, header, number);
         yield return CreateWhole(chunk, parameters, header, number);
     }
