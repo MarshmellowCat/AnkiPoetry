@@ -60,8 +60,8 @@ public partial class WordCreator : BaseCreator<Card>
 
             ending += formattedNext;
 
-            if (lineNext.IsLast)
-                ending += "<hr>";
+            //if (lineNext.IsLast)
+                //ending += "<hr>";
         }
         
         // return new(number, beginning + line.Text + ending);
