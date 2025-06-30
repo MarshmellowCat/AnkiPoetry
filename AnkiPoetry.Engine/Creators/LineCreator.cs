@@ -36,5 +36,5 @@ public class LineCreator : BaseCreator<Card>
     }
 
     private static string MakeCloze(string text)
-        => $"{{{{c1::{text} :: L }}}}";
+        => $"{{{{c1::{text} :: {text[0..n]} }}}}";
 }
