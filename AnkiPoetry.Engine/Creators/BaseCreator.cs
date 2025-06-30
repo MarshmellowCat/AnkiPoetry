@@ -54,6 +54,7 @@ public abstract class BaseCreator<T>
         //made starsHtmL always have two breaks even if StarsMode isn't on - just for safety
         var starsHtml = "<br><br>";
 
+/*
         if (parameters.StarMode != StarMode.None)
         {
             var total = 5;
@@ -73,7 +74,7 @@ public abstract class BaseCreator<T>
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
-
+*/
         // made the starsHtml always just be two breaks; no more stars yay!
         starsHtml = "<br><br>";
 
