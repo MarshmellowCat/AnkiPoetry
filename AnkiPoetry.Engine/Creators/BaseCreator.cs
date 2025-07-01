@@ -22,13 +22,13 @@ public abstract class BaseCreator<T>
         {
             var text = GetLineText(line.Text, line, parameters);
 
-            if (line.IsFirst)
-                sb.Append("<hr>");
+           // if (line.IsFirst)
+               // sb.Append("<hr>");
 
             sb.Append(text);
 
-            if (line.IsLast)
-                sb.Append("<hr>");
+           // if (line.IsLast)
+             //   sb.Append("<hr>");
         }
 
         return sb.ToString();
