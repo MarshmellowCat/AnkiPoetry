@@ -36,5 +36,9 @@ public class LineCreator : BaseCreator<Card>
     }
 
     private static string MakeCloze(string text)
-        => $"{{{{c1::{text} :: w }}}}";
+    {
+        var matches = Regexes.RegexWord().Matches(text);
+        var n = matches[0].Index + 1;
+        return $"{{{{c1::{text} :: {text[0..n]} }}}}";
+    }
 }
