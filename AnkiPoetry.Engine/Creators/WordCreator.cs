@@ -154,7 +154,7 @@ public class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 1; i < chunk.Lines.Length - 1; ++i)
+        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
         {
             var to = chunk.Lines[i + 1];
 
