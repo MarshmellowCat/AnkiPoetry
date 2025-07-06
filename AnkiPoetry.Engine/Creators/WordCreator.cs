@@ -145,7 +145,7 @@ public partial class WordCreator : BaseCreator<Card>
 */
 
 
-//CLAIRE what follows is code from the line creator, just renamed to WordCreator
+//20250706 what follows is code from the line creator, just renamed to WordCreator
 
 
 namespace AnkiPoetry.Engine;
@@ -154,7 +154,7 @@ public class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
+        for (var i = 1; i < chunk.Lines.Length - 1; ++i)
         {
             var to = chunk.Lines[i + 1];
 
@@ -189,6 +189,6 @@ public class WordCreator : BaseCreator<Card>
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return $"{{{{c1::{text} ... :: w }}}}";
+        return $"{{{{c1::{text}... :: w }}}}";
     }
 }
