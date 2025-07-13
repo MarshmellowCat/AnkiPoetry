@@ -182,7 +182,7 @@ public class WordCreator : BaseCreator<Card>
     {
         var text = MakeCloze(to.Text);
         var cloze = AddLineNumber(to, text, parameters);
-        return new(number, beginning + cloze + ending);
+        return new(number, "..." + beginning + cloze + ending);
     }
 
     private static string MakeCloze(string text)
