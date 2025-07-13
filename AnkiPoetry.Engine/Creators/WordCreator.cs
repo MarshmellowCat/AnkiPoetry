@@ -189,6 +189,6 @@ public class WordCreator : BaseCreator<Card>
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return $"{{{{c1::{text}... :: w }}}}";
+        return $"{{{{c1::{text} ... :: w }}}}";
     }
 }
