@@ -22,13 +22,13 @@ public abstract class BaseCreator<T>
         {
             var text = GetLineText(line.Text, line, parameters);
 
-           // if (line.IsFirst)
-               // sb.Append("<hr>");
+            //if (line.IsFirst)
+                //sb.Append("<hr>");
 
             sb.Append(text);
 
-           // if (line.IsLast)
-             //   sb.Append("<hr>");
+            if (line.IsLast)
+                sb.Append("<hr>");
         }
 
         return sb.ToString();
@@ -54,7 +54,6 @@ public abstract class BaseCreator<T>
         //made starsHtmL always have two breaks even if StarsMode isn't on - just for safety
         var starsHtml = "<br><br>";
 
-/*
         if (parameters.StarMode != StarMode.None)
         {
             var total = 5;
@@ -74,7 +73,7 @@ public abstract class BaseCreator<T>
 
             starsHtml = $" <span class=\"line{color}\">{starsText}</span>";
         }
-*/
+
         // made the starsHtml always just be two breaks; no more stars yay!
         starsHtml = "<br><br>";
 
