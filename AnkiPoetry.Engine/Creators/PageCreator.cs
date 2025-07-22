@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿
+
+/*  
+using System.Text;
 
 namespace AnkiPoetry.Engine;
 
@@ -72,7 +75,14 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
 
         //ABCDEFJ
     }
-}/*  ORIGINAL MakeClozeLeaveFirstLetter
+
+}
+
+*/
+
+
+
+/*  ORIGINAL MakeClozeLeaveFirstLetter
 
 private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
     {
@@ -82,3 +92,59 @@ private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
 
 
         */
+
+
+
+
+
+/*
+*************************EVERYTHING ABOVE IS THE ORIGINAL PAGE CREATOR****************
+*/
+
+
+namespace AnkiPoetry.Engine;
+
+public class PageCreator : BaseCreator<Card>
+{
+    protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
+    {
+        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
+        {
+            var to = chunk.Lines[i + 1];
+
+            if (!to.NotMy && to.LineType != LineType.NextPage)
+            {
+                var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
+
+                var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
+                // var beginning = CreateHeader(chunk, parameters);
+
+               // if (to.IsFirst)
+                   // beginning += "<hr>";
+
+                // var ending = to.IsLast ? "<hr>" : "";
+                var ending = "";
+
+                var card = CreateCard(number, beginning, ending, to, parameters);
+
+                yield return card;
+            }
+        }
+    }
+
+    protected Card CreateCard(string number, string beginning, string ending, MyLine to, Parameters parameters)
+    {
+        var text = MakeCloze(to.Text);
+        var cloze = AddLineNumber(to, text, parameters);
+        return new(number, beginning + cloze + ending);
+    }
+
+    private static string MakeCloze(string text)
+    {
+        var matches = Regexes.RegexWord().Matches(text);
+        var n = matches[0].Index + 1;
+        return $"{{{text}}}";
+    }
+}
+
+         
