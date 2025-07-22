@@ -162,7 +162,7 @@ public class WordCreator : BaseCreator<Card>
             {
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
-                var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
+                var beginning = CreateHeader(chunk, parameters) + "..." + JoinLines(chunk.Lines[..(i + 1)], parameters);
                 // var beginning = CreateHeader(chunk, parameters);
 
                // if (to.IsFirst)
@@ -182,7 +182,7 @@ public class WordCreator : BaseCreator<Card>
     {
         var text = MakeCloze(to.Text);
         var cloze = AddLineNumber(to, text, parameters);
-        return new(number, "..." + beginning + cloze + ending);
+        return new(number, beginning + cloze + ending);
     }
 
     private static string MakeCloze(string text)
