@@ -143,7 +143,8 @@ public class PageCreator : BaseCreator<Card>
     {
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
-        return $"{{text}}";
+        // return $"{{text}}";
+        return text;
     }
 }
 
