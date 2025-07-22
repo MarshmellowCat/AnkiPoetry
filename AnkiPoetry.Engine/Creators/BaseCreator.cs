@@ -27,8 +27,8 @@ public abstract class BaseCreator<T>
 
             sb.Append(text);
 
-            if (line.IsLast)
-                sb.Append("<hr>");
+            //if (line.IsLast)
+               // sb.Append("<hr>");
         }
 
         return sb.ToString();
