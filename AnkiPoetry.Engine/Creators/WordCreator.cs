@@ -180,7 +180,7 @@ public class WordCreator : BaseCreator<Card>
 
     protected Card CreateCard(string number, string beginning, string ending, MyLine to, Parameters parameters)
     {
-        var text = MakeCloze(to.Text);
+        var text = "... " + MakeCloze(to.Text);
         var cloze = AddLineNumber(to, text, parameters);
         return new(number, beginning + cloze + ending);
     }
