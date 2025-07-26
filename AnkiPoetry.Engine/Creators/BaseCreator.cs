@@ -23,12 +23,12 @@ public abstract class BaseCreator<T>
             var text = GetLineText(line.Text, line, parameters);
 
             //if (line.IsFirst)
-                //sb.Append("<hr>");
+            //sb.Append("<hr>");
 
             sb.Append(text);
 
             //if (line.IsLast)
-               // sb.Append("<hr>");
+            // sb.Append("<hr>");
         }
 
         return sb.ToString();
@@ -36,7 +36,7 @@ public abstract class BaseCreator<T>
 
     protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
         => $"{lineNumber:000}";
-        
+
 
     /* ORIGINAL Cart Title  01.01.001, etc
 
@@ -98,8 +98,8 @@ public abstract class BaseCreator<T>
         var number = parameters.LineNumbers
             ? $"{(parameters.Continuous ? line.ContinuousNumber : line.LineNumber),3}. "
             : "";
-        
-        return "<div>" + number + "... " + text + "</div>"; //CLAIRE
+
+        return "<div>" + number + text + "</div>"; //CLAIRE
 
         // Commented out to stop the line color br
         // return ColorLine(
