@@ -154,7 +154,7 @@ public class PageCreator : BaseCreator<Card>
         var matches = Regexes.RegexWord().Matches(text);
         var n = matches[0].Index + 1;
         // return $"{{text}}";
-        return "<div class=\"text\">" + text + "</div>";
+        return "<span class=\"text\">" + text + "</span>";
        //return text;
     }
 }
