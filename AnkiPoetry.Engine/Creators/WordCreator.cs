@@ -178,11 +178,16 @@ public class WordCreator : BaseCreator<Card>
         }
     }
 
+
+
+
+
+// below code affects real line
     protected Card CreateCard(string number, string beginning, string ending, MyLine to, Parameters parameters)
     {
-        var text = "... " + MakeCloze(to.Text);
+        var text = MakeCloze(to.Text);
         var cloze = AddLineNumber(to, text, parameters);
-        return new(number, beginning + cloze + ending);
+        return new(number, "... " + beginning + cloze + ending);
     }
 
     private static string MakeCloze(string text)
