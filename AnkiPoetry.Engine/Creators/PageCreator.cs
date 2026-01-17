@@ -82,7 +82,7 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
 
 
 
-/*  ORIGINAL MakeClozeLeaveFirstLetter
+ ORIGINAL MakeClozeLeaveFirstLetter
 
 private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
     {
@@ -91,7 +91,7 @@ private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
         return text[0..n] + $"{{{{c{cloze_num}::{text[n..]}}}}}";
 
 
-        */
+        
 
 
 
