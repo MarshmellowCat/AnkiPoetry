@@ -1,8 +1,4 @@
-﻿
-
-/*
-
- using System.Text;
+﻿using System.Text;
 
 namespace AnkiPoetry.Engine;
 
@@ -76,14 +72,7 @@ private Card CreateOddEven(Chunk chunk, Parameters parameters, string header, st
 
         //ABCDEFJ
     }
-
-}
-
-
- */
-
-
-/*  ORIGINAL MakeClozeLeaveFirstLetter
+}/*  ORIGINAL MakeClozeLeaveFirstLetter
 
 private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
     {
@@ -110,7 +99,7 @@ private static string MakeClozeLeaveFirstLetter(int cloze_num, string text)
 
 /*
 *************************EVERYTHING BELOW IS THE IPA EDITED PAGE CREATOR****************
-*/
+
 
 
 
@@ -173,3 +162,4 @@ public class PageCreator : BaseCreator<Card>
 }
 
          
+*/
