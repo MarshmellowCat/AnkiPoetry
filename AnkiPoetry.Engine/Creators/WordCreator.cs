@@ -11,7 +11,8 @@ public partial class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 0; i+1 < chunk.Lines.Length; ++i)
+        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
+        //for (var i = 1; i < chunk.Lines.Length; ++i)
         {
             var to = chunk.Lines[i];
 
@@ -50,6 +51,11 @@ public partial class WordCreator : BaseCreator<Card>
                 yield return card;
             }
         }
+        
+        // START EXPERIMENT!!!
+        
+
+        // END EXPERIMENT END
     }
 
     protected Card CreateCard(string number, string beginning, string ending, MyLine line, MyLine? lineNext, Parameters parameters)
@@ -148,8 +154,8 @@ public partial class WordCreator : BaseCreator<Card>
 
 //20250706 what follows is code from the line creator, just renamed to WordCreator
 
-
 /*
+
 using System.Text;
 
 namespace AnkiPoetry.Engine;
