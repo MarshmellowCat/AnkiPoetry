@@ -18,7 +18,7 @@ public class IPACreator : BaseCreator<Card>
         
         for (var i = 0; i < chunk.Lines.Length - 1; ++i)
         {
-            var to = chunk.Lines[i + 0];
+            var to = chunk.Lines[i + 1];
 
             if (!to.NotMy && to.LineType != LineType.NextPage)
             {
