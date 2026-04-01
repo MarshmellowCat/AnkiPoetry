@@ -14,7 +14,7 @@ switch (args)
 
 static void Create(string parameters_file, string text_file, string output_folder)
 {
-    var parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
+    Parameters parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
     var text = File.ReadAllText(text_file);
 
     CreatorInfo[] infos =
@@ -29,12 +29,17 @@ static void Create(string parameters_file, string text_file, string output_folde
 
     var chunks = Chunker.Run(doc, parameters);
 
+    Parameters fixed_parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
+    fixed_parameters.ChunkSize = 100;
+    var fixed_chunk = Chunker.Run(doc, fixed_parameters);
+
     if (!Directory.Exists(output_folder))
         Directory.CreateDirectory(output_folder);
 
     foreach (var info in infos)
     {
-        var cards = info.Creator.Run(chunks, parameters);
+        var cards = 
+            info.Creator.Run(chunks, (info.Id == "page") ? fixed_parameters : parameters);
 
         var csv = CsvSaver.CreateCsv(cards, [
             "#separator:semicolon",
