@@ -30,7 +30,7 @@ static void Create(string parameters_file, string text_file, string output_folde
     var chunks = Chunker.Run(doc, parameters);
 
     Parameters fixed_parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
-    fixed_parameters.ChunkSize = 100;
+    fixed_parameters.ChunkSize = 200;
     var fixed_chunk = Chunker.Run(doc, fixed_parameters);
 
     if (!Directory.Exists(output_folder))
@@ -38,8 +38,9 @@ static void Create(string parameters_file, string text_file, string output_folde
 
     foreach (var info in infos)
     {
-        var cards = 
-            info.Creator.Run(chunks, (info.Id == "page") ? fixed_parameters : parameters);
+        var cards = info.Id == "page" 
+            ? info.Creator.Run(fixed_chunk, fixed_parameters)
+            : info.Creator.Run(chunks, parameters);
 
         var csv = CsvSaver.CreateCsv(cards, [
             "#separator:semicolon",
