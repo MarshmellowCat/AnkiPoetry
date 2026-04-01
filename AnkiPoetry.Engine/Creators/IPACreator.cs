@@ -53,7 +53,7 @@ public class IPACreator : BaseCreator<Card>
     private static string MakeCloze(string text)
     {
         var matches = Regexes.RegexWord().Matches(text);
-        var n = matches[0].Index + 0;
+        var n = matches[0].Index + 1;
         // return $"{{text}}";
         return "<span class=\"text\">" + text + "</span>";
        //return text;
