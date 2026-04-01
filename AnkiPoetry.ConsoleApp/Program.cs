@@ -31,7 +31,8 @@ static void Create(string parameters_file, string text_file, string output_folde
 
     Parameters fixed_parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
     fixed_parameters.ChunkSize = 200;
-    var fixed_chunk = Chunker.Run(doc, fixed_parameters);
+    var fixed_doc = LoaderText.LoadText(text, fixed_parameters);
+    var fixed_chunk = Chunker.Run(fixed_doc, fixed_parameters);
 
     if (!Directory.Exists(output_folder))
         Directory.CreateDirectory(output_folder);
