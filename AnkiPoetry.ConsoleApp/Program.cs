@@ -14,7 +14,6 @@ switch (args)
 
 static void Create(string parameters_file, string text_file, string output_folder)
 {
-    Parameters parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
     var text = File.ReadAllText(text_file);
 
     CreatorInfo[] infos =
@@ -25,8 +24,8 @@ static void Create(string parameters_file, string text_file, string output_folde
         new(new IPACreator(),  "ipa",  "4. IPA"),
     ];
 
+    Parameters parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
     var doc = LoaderText.LoadText(text, parameters);
-
     var chunks = Chunker.Run(doc, parameters);
 
     Parameters fixed_parameters = JsonSerializer.Deserialize<Parameters>(File.ReadAllText(parameters_file))!;
@@ -41,7 +40,7 @@ static void Create(string parameters_file, string text_file, string output_folde
     {
         var cards = info.Id == "page" 
             ? info.Creator.Run(fixed_chunk, fixed_parameters)
-            : info.Creator.Run(chunks, parameters);
+            : info.Creator.Run(fixed_chunk, fixed_parameters);
 
         var csv = CsvSaver.CreateCsv(cards, [
             "#separator:semicolon",
