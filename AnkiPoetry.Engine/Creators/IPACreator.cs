@@ -18,13 +18,13 @@ public class IPACreator : BaseCreator<Card>
         
         for (var i = 0; i < chunk.Lines.Length - 1; ++i)
         {
-            var to = chunk.Lines[i + 1];
+            var to = chunk.Lines[i + 0];
 
             if (!to.NotMy && to.LineType != LineType.NextPage)
             {
                 var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
-                var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
+                var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 0)], parameters);
                 // var beginning = CreateHeader(chunk, parameters);
 
                 // if (to.IsFirst)
