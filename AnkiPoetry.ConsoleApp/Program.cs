@@ -22,6 +22,7 @@ static void Create(string parameters_file, string text_file, string output_folde
         new(new WordCreator(), "word", "1. word"),
         new(new LineCreator(), "line", "2. line"),
         new(new PageCreator(), "page", "3. page"),
+        new(new IPACreator(),  "ipa",  "4. IPA"),
     ];
 
     var doc = LoaderText.LoadText(text, parameters);

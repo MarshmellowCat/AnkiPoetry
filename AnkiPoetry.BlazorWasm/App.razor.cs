@@ -25,6 +25,7 @@ public sealed partial class App : IAsyncDisposable
         new(new WordCreator(), "word", "Word", "1. word"),
         new(new LineCreator(), "line", "Line", "2. line"),
         new(new PageCreator(), "page", "Page", "3. page"),
+        new(new IPACreator(),  "ipa",  "IPA",  "4. IPA"),
     ];
 
     private readonly SampleCreator creator_sample = new();
