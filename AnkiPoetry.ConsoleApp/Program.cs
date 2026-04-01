@@ -18,9 +18,9 @@ static void Create(string parameters_file, string text_file, string output_folde
 
     CreatorInfo[] infos =
     [
-        new(new WordCreator(), "word", "1. word"),
-        new(new LineCreator(), "line", "2. line"),
-        new(new PageCreator(), "page", "3. page"),
+        new(new PageCreator(), "page", "1. page"),
+        new(new WordCreator(), "word", "2. word"),
+        new(new LineCreator(), "line", "3. line"),
         new(new IPACreator(),  "ipa",  "4. IPA"),
     ];
 

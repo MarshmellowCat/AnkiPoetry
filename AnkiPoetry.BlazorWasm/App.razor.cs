@@ -22,10 +22,11 @@ public sealed partial class App : IAsyncDisposable
 
     private readonly CreatorInfo[] infos =
     [
-        new(new WordCreator(), "word", "Word", "1. word"),
-        new(new LineCreator(), "line", "Line", "2. line"),
-        new(new PageCreator(), "page", "Page", "3. page"),
+        new(new PageCreator(), "page", "Page", "1. page"),
+        new(new WordCreator(), "word", "Word", "2. word"),
+        new(new LineCreator(), "line", "Line", "3. line"),
         new(new IPACreator(),  "ipa",  "IPA",  "4. IPA"),
+        
     ];
 
     private readonly SampleCreator creator_sample = new();
