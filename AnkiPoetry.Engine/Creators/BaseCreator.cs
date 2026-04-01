@@ -46,8 +46,6 @@ public abstract class BaseCreator<T>
 
 
 
-
-
     protected static string CreateHeader(Chunk chunk, Parameters parameters)
     {
 
@@ -79,6 +77,25 @@ public abstract class BaseCreator<T>
 
         return $"<div class=\"header\">{chunk.Header}{starsHtml}</div>";
     }
+
+// ************************* BELOW IS COPY of CreateHeader, but renamed to CreateSortFieldText *************************
+
+protected static string CreateSortFieldText(Chunk chunk, Parameters parameters)
+    {
+        
+        return $"{chunk.Header}";
+    }
+
+
+
+
+
+
+
+
+
+// ************************* ABOVE IS COPY of CreateHeader, but renamed to CreateSortFieldText *************************
+
 
     //C# operator % returns negative numbers for negative x, so we need to adjust result
     static int Mod(int x, int m)
