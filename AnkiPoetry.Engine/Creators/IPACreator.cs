@@ -23,7 +23,7 @@ public class IPACreator : BaseCreator<Card>
             if (!to.NotMy && to.LineType != LineType.NextPage)
             {
                 //Claire: added "i" to designate card as IPA
-                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - I";
+                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - ipa";
 
 
                 var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 0)], parameters);
