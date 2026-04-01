@@ -162,7 +162,9 @@ public class WordCreator : BaseCreator<Card>
 
             if (!to.NotMy && to.LineType != LineType.NextPage)
             {
-                var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
+                
+                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - W";
+                //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
 
                 var beginning = CreateHeader(chunk, parameters) + FirstWordJoinLines(chunk.Lines[..(i + 1)], parameters);

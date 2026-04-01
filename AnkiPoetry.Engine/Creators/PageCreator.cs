@@ -9,7 +9,10 @@ public partial class PageCreator : BaseCreator<Card>
         var from = chunk.Lines.First();
 
         var header = CreateHeader(chunk, parameters);
-        var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, from.LineNumber);
+        
+
+        var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, from.LineNumber) + " - P";
+        //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, from.LineNumber);
 
         // yield return CreateOddEven(chunk, parameters, header, number);
         yield return CreateFirstLetter(chunk, parameters, header, number);
