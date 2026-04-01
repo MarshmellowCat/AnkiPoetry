@@ -5,14 +5,13 @@
 
 using System.Text;
 using System.Text.RegularExpressions;
-
 namespace AnkiPoetry.Engine;
 
 public partial class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 1; i < chunk.Lines.Length; ++i)
+        for (var i = 0; i < chunk.Lines.Length; ++i)
         {
             var to = chunk.Lines[i];
 
@@ -108,13 +107,6 @@ public partial class WordCreator : BaseCreator<Card>
             var word = "";
 
 
-
-
-
-
-
-
-
             //CG0419 This changes the allowed characters limit when truncating words.. Gonna try to change to 5 and see what happens
             //CG0419 5 seems a good number!
             //CG0509 trying 6!
@@ -149,15 +141,15 @@ public partial class WordCreator : BaseCreator<Card>
 
 
 
+
+
+
 // ****************************** BELOW is WordCreator WITHOUT any shortening of prompted line ***********************************
 
 //20250706 what follows is code from the line creator, just renamed to WordCreator
 
+
 /*
-
-
-
-
 using System.Text;
 
 namespace AnkiPoetry.Engine;
@@ -256,3 +248,112 @@ public class WordCreator : BaseCreator<Card>
 
 */
 // ****************************** Above is WordCreator WITHOUT any shortening of prompted line ***********************************
+
+
+
+
+
+
+
+// ****************************** BELOW is the LINECreator but WITh original WORD Creator's shortening of prompted line ***********************************
+
+
+//20260402 what follows is code from the line creator, WITH original WordCreator make cloze first line
+/*
+
+
+using System.Text;
+
+namespace AnkiPoetry.Engine;
+
+public class WordCreator : BaseCreator<Card>
+{
+    protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
+    {
+        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
+        {
+            var to = chunk.Lines[i + 1];
+
+            if (!to.NotMy && to.LineType != LineType.NextPage)
+            {
+                
+                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - w";
+                //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
+
+                var beginning = CreateHeader(chunk, parameters) + FirstWordJoinLines(chunk.Lines[..(i + 1)], parameters);
+                // var beginning = CreateHeader(chunk, parameters);
+
+               // if (to.IsFirst)
+                   // beginning += "<hr>";
+
+                // var ending = to.IsLast ? "<hr>" : "";
+                var ending = "";
+
+                var card = CreateCard(number, beginning, ending, to, parameters);
+
+                yield return card;
+            }
+        }
+    }
+
+
+
+    protected string FirstWordJoinLines(MyLine[] list, Parameters parameters)
+    {//CG THIS IS WHERE THE "NEXT LINE" PROMPT HAPPENS
+
+        var sb = new StringBuilder();
+        var i = 0;
+
+        foreach (var line in list)
+        {
+            var text = GetLineText(line.Text, line, parameters);
+            if (i == 0)
+            {
+                text = FirstWordGetLineText(line.Text, line, parameters);
+            }
+
+            sb.Append(text);
+
+            i++;
+        }
+
+        return sb.ToString();
+    }
+
+    protected string FirstWordGetLineText(string text, MyLine line, Parameters parameters)
+        => FirstWordAddLineNumber(line, text, parameters);
+    
+    protected string FirstWordAddLineNumber(MyLine line, string text, Parameters parameters)
+    {
+        var number = parameters.LineNumbers
+            ? $"{(parameters.Continuous ? line.ContinuousNumber : line.LineNumber),3}. "
+            : "";
+
+        return "<div>" + number + "... " + text + "</div>"; //CLAIRE
+
+        // Commented out to stop the line color br
+        // return ColorLine(
+        //     number + text,
+        //     (line.LineNumber - 1), //to make first (zero) line violet not red
+        //     parameters.Colors);
+    }
+
+
+    // below code affects real line
+    protected Card CreateCard(string number, string beginning, string ending, MyLine to, Parameters parameters)
+    {
+        var text = MakeCloze(to.Text);
+        var cloze = AddLineNumber(to, text, parameters);
+        return new(number, beginning + cloze + ending);
+    }
+
+    private static string MakeCloze(string text)
+    {
+        var matches = Regexes.RegexWord().Matches(text);
+        var n = matches[0].Index + 1;
+        return $"{{{{c1::{text} ... :: w }}}}";
+    }
+}
+
+*/
+// ****************************** Above is the LINECreator but WITh original WORD Creator's shortening of prompted line ***********************************
