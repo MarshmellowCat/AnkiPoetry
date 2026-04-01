@@ -42,7 +42,7 @@ public partial class WordCreator : BaseCreator<Card>
                 var ending = "";
 
                 var nextLine = i < chunk.Lines.Length - 1
-                    ? chunk.Lines[i + 1]
+                    ? chunk.Lines[i + 0]
                     : null;
 
                 var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
