@@ -1,6 +1,7 @@
 ﻿
 
-/*
+// ****************************** BELOW is WordCreator ORIGINAL, WITH shortening of prompted line ***********************************
+
 
 using System.Text;
 using System.Text.RegularExpressions;
@@ -28,7 +29,9 @@ public partial class WordCreator : BaseCreator<Card>
             
             if (!to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
             {
-                var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
+
+                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - w";
+                //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
                 // var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..i], parameters);
                 var beginning = CreateHeader(chunk, parameters);// + GetLineText(chunk.Lines[i].Text, chunk.Lines[i], parameters);
@@ -140,12 +143,19 @@ public partial class WordCreator : BaseCreator<Card>
 }
 
 
-***********************************************************************************
 
-*/
 
+// ****************************** ABOVE is WordCreator ORIGINAL, WITH shortening of prompted line ***********************************
+
+
+
+// ****************************** BELOW is WordCreator WITHOUT any shortening of prompted line ***********************************
 
 //20250706 what follows is code from the line creator, just renamed to WordCreator
+
+/*
+
+
 
 
 using System.Text;
@@ -243,3 +253,6 @@ public class WordCreator : BaseCreator<Card>
         return $"{{{{c1::{text} ... :: w }}}}";
     }
 }
+
+*/
+// ****************************** Above is WordCreator WITHOUT any shortening of prompted line ***********************************
