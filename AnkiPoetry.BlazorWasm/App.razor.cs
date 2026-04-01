@@ -92,12 +92,25 @@ public sealed partial class App : IAsyncDisposable
             var doc = LoaderText.LoadText(state.Text, state.Parameters);
 
             var chunks = Chunker.Run(doc, state.Parameters);
+            var original_chunk_size = state.Parameters.ChunkSize;
+            state.Parameters.ChunkSize = 200;
+            var fixed_doc = LoaderText.LoadText(state.Text, state.Parameters);
+            var fixed_chunk = Chunker.Run(fixed_doc, state.Parameters);
+            state.Parameters.ChunkSize = original_chunk_size;
+
 
             samples = creator_sample.Run(chunks, state.Parameters);
 
             foreach (var info in infos)
             {
-                var cards = info.Creator.Run(chunks, state.Parameters);
+                state.Parameters.ChunkSize = info.Id == "page"
+                    ? 200 
+                    : original_chunk_size;
+                var cards = info.Id == "page" 
+                    ? info.Creator.Run(fixed_chunk, state.Parameters)
+                    : info.Creator.Run(chunks, state.Parameters);
+
+                // var cards = info.Creator.Run(chunks, state.Parameters);
                 info.Csv = CsvSaver.CreateCsv(cards, [
                     "#separator:semicolon",
                     $"#notetype:poetry::{info.Id}",

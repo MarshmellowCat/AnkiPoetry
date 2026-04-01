@@ -40,7 +40,7 @@ static void Create(string parameters_file, string text_file, string output_folde
     {
         var cards = info.Id == "page" 
             ? info.Creator.Run(fixed_chunk, fixed_parameters)
-            : info.Creator.Run(fixed_chunk, fixed_parameters);
+            : info.Creator.Run(chunks, parameters);
 
         var csv = CsvSaver.CreateCsv(cards, [
             "#separator:semicolon",
