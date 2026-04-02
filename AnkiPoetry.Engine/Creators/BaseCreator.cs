@@ -38,7 +38,7 @@ public abstract class BaseCreator<T>
         => $"{lineNumber:000}";
     
     protected virtual string CreateWordNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
-        => $"{lineNumber:000+1}";
+        => $"{lineNumber:001}";
 
 
     /* ORIGINAL Cart Title  01.01.001, etc
