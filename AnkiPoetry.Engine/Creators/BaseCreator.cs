@@ -37,8 +37,10 @@ public abstract class BaseCreator<T>
     protected virtual string CreateNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
         => $"{lineNumber:000}";
     
+    
+    //20260402 below line created by CLP trying to get the numbers to match up by chaning 000 to 001. So far no success
     protected virtual string CreateWordNumber(int maxSongNumber, int sectionNumber, int songNumber, int lineNumber)
-        => $"{lineNumber:001}";
+        => $"{lineNumber:000}";
 
 
     /* ORIGINAL Cart Title  01.01.001, etc
