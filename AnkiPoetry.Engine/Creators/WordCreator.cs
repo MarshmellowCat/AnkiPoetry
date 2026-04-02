@@ -14,7 +14,7 @@ public partial class WordCreator : BaseCreator<Card>
         for (var i = 0; i < chunk.Lines.Length - 1; ++i)
         //for (var i = 1; i < chunk.Lines.Length; ++i)
         {
-            var to = chunk.Lines[i-1];
+            var to = chunk.Lines[i+1];
             //var to = chunk.Lines[i];
 
             // if (i == 0)
@@ -44,7 +44,7 @@ public partial class WordCreator : BaseCreator<Card>
                 var ending = "";
 
                 var nextLine = i < chunk.Lines.Length - 1
-                    ? chunk.Lines[i + 0]
+                    ? chunk.Lines[i + 1]
                     : null;
 
                 var card = CreateCard(number, beginning, ending, to, nextLine, parameters);
