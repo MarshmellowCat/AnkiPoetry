@@ -33,7 +33,7 @@ public partial class WordCreator : BaseCreator<Card>
             if (!to.NotMy && to.LineType != LineType.NextSong && to.LineType != LineType.NextPage)
             {
 
-                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateWordNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - w";
+                var number = CreateSortFieldText(chunk, parameters) + " - " + CreateWordNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber+1) + " - w";
                 //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
                 // var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..i], parameters);
