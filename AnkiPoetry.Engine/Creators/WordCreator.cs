@@ -14,7 +14,8 @@ public partial class WordCreator : BaseCreator<Card>
         for (var i = 0; i < chunk.Lines.Length - 1; ++i)
         //for (var i = 1; i < chunk.Lines.Length; ++i)
         {
-            var to = chunk.Lines[i];
+            var to = chunk.Lines[i+1];
+            //var to = chunk.Lines[i];
 
             // if (i == 0)
             // {
