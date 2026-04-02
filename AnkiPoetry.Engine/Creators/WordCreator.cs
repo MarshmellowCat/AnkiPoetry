@@ -11,10 +11,10 @@ public partial class WordCreator : BaseCreator<Card>
 {
     protected override IEnumerable<Card> CardFromChunk(Chunk chunk, Parameters parameters)
     {
-        for (var i = 0; i < chunk.Lines.Length - 1; ++i)
+        for (var i = 1; i < chunk.Lines.Length - 1; ++i)
         //for (var i = 1; i < chunk.Lines.Length; ++i)
         {
-            var to = chunk.Lines[i+1];
+            var to = chunk.Lines[i];
             //var to = chunk.Lines[i];
 
         /*
@@ -45,7 +45,9 @@ public partial class WordCreator : BaseCreator<Card>
                 // var ending = to.IsLast ? "<hr>" : "";
                 var ending = "";
 
-                var nextLine = i < chunk.Lines.Length - 0
+                var nextLine = i < chunk.Lines.Length - 1
+                //var nextLine = i < chunk.Lines.Length - 1
+
                     ? chunk.Lines[i + 1]
                     //? chunk.Lines[i + 1]
                     : null;
