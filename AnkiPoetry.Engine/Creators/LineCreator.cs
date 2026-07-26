@@ -14,8 +14,8 @@ public class LineCreator : BaseCreator<Card>
                 var number = CreateSortFieldText(chunk, parameters) + " - " + CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber) + " - L";
                 //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
-                //var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
-                var beginning = CreateHeader(chunk, parameters);
+                var beginningorg = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..(i + 1)], parameters);
+                var beginning2 = CreateHeader(chunk, parameters);
 
                // if (to.IsFirst)
                    // beginning += "<hr>";
@@ -23,7 +23,7 @@ public class LineCreator : BaseCreator<Card>
                 // var ending = to.IsLast ? "<hr>" : "";
                 var ending = "";
 
-                var card = CreateCard(number, beginning, ending, to, parameters);
+                var card = CreateCard(number, beginningorg, beginning, ending, to, parameters);
 
                 yield return card;
             }
