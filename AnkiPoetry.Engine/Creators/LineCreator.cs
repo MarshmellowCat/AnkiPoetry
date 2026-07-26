@@ -121,7 +121,7 @@ public class LineCreator : BaseCreator<Card>
             ? $"{(parameters.Continuous ? line.ContinuousNumber : line.LineNumber),3}. "
             : "";
 
-        return "<div>" + number + "... " + text + "</div>"; //CLAIRE
+        return "<div>" + number + text + "</div>"; //CLAIRE
 
         // Commented out to stop the line color br
         // return ColorLine(
