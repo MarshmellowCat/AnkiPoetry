@@ -70,7 +70,7 @@ public class LineCreator : BaseCreator<Card>
                 //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
 
-                var beginning = CreateHeader(chunk, parameters) + FirstWordJoinLines(chunk.Lines[..(i)], parameters);
+                var beginning = CreateHeader(chunk, parameters) + FirstWordJoinLines(chunk.Lines[..(i + 1)], parameters);
                 //var beginning = CreateHeader(chunk, parameters);
 
                //if (to.IsFirst)
@@ -94,9 +94,9 @@ public class LineCreator : BaseCreator<Card>
         foreach (var line in list)
         {
             var text = GetLineText(line.Text, line, parameters);
-            if (i == 0)
+            //if (i == 0)
             {
-                text = FirstWordGetLineText(line.Text, line, parameters);
+                //text = FirstWordGetLineText(line.Text, line, parameters);
             }
 
             //if (line.IsFirst)
