@@ -36,8 +36,10 @@ public partial class WordCreator : BaseCreator<Card>
                 var number = CreateSortFieldText(chunk, parameters) + " - " + CreateWordNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber+1) + " - w";
                 //var number = CreateNumber(chunk.MaxSongNumber, chunk.SectionNumber, chunk.SongNumber, to.LineNumber);
 
+                //This top one is directly from LineCreator
+                //var beginning = CreateHeader(chunk, parameters) + FirstWordJoinLines(chunk.Lines[..(i + 1)], parameters);
                 // var beginning = CreateHeader(chunk, parameters) + JoinLines(chunk.Lines[..i], parameters);
-                var beginning = CreateHeader(chunk, parameters);// + GetLineText(chunk.Lines[i].Text, chunk.Lines[i], parameters);
+                var beginning = CreateHeader(chunk, parameters) + GetLineText(chunk.Lines[i].Text, chunk.Lines[i], parameters);
 
                 // if (to.IsFirst)
                 //     beginning += "<hr>";
