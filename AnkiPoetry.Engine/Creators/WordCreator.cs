@@ -137,7 +137,7 @@ public partial class WordCreator : BaseCreator<Card>
             if (i < matches.Count)
                 word += "...";
 
-            sb.Append($"{{{{c{cloze_num}::{word}:: w }}}}");
+            sb.Append($"{{{{c{cloze_num}::{word}:: ... }}}}");
 
             cloze_num++;
         }
