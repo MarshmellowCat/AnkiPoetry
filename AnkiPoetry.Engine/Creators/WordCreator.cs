@@ -140,6 +140,7 @@ public partial class WordCreator : BaseCreator<Card>
                 word += "...";
 
             sb.Append($"{{{{c1::{word}:: ... }}}}");
+            //sb.Append($"{{{{c{cloze_num}::{word}:: ... }}}}");
 
             cloze_num++;
         }
