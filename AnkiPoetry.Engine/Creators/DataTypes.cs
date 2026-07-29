@@ -3,9 +3,11 @@
 public record MyDocument(MySection[] Sections, int MaxSongNumber);
 public record MySection(int SectionNumber, string SectionName, MySong[] Songs);
 public record MySong(int SongNumber, string SongName, MyLine[] Lines);
-//public record MyLine(int LineNumber, int ContinuousNumber, string Text, LineType LineType, bool IsFirst, bool IsLast, bool NotMy);
-public record MyLine(int LineNumber, int ContinuousNumber, string Text, LineType LineType, bool IsLast, bool NotMy);
 
+
+
+
+public record MyLine(int LineNumber, int ContinuousNumber, string Text, LineType LineType, bool IsFirst, bool IsLast, bool NotMy);
 
 public record Card(string Number, string Text);
 
