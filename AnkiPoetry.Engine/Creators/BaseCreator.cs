@@ -22,8 +22,8 @@ public abstract class BaseCreator<T>
         {
             var text = GetLineText(line.Text, line, parameters);
 
-            if (line.IsFirst)
-            sb.Append("<hr>");
+            //if (line.IsFirst)
+            //sb.Append("<hr>");
 
             sb.Append(text);
 

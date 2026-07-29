@@ -16,15 +16,15 @@ public partial class SampleCreator : BaseCreator<Card>
 
         foreach (var line in chunk.Lines)
         {
-            if (line.IsFirst)
-                sb.Append("<hr>");
+            //if (line.IsFirst)
+                //sb.Append("<hr>");
 
             var text = GetLineText(line.Text, line, parameters);
 
             sb.Append(text);
 
-            if (line.IsLast)
-                sb.Append("<hr>");
+            //if (line.IsLast)
+                //sb.Append("<hr>");
         }
 
         yield return new(number, sb.ToString());

@@ -1,4 +1,6 @@
-﻿namespace AnkiPoetry.Engine;
+﻿using System.Threading.Tasks.Dataflow;
+
+namespace AnkiPoetry.Engine;
 
 public static class Chunker
 {
