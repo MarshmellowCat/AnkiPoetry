@@ -102,9 +102,9 @@ public class LineCreator : BaseCreator<Card>
 
             if (line.IsFirst)
             {
-            sb.Append("<hr>");
+            sb.Append("<br><br>");
             }
-            
+
             sb.Append(text);
 
             //if (line.IsLast)
