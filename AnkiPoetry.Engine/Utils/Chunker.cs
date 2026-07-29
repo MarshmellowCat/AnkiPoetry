@@ -32,7 +32,8 @@ public static class Chunker
         {
             var lines = new List<MyLine>();
 
-            var song = section.Songs[i];
+            //var song = section.Songs[i]; ORIGINAL
+            var song = parameters;
             var prev_song = i > 0 ? section.Songs[i - 1] : null;
             var next_song = i < section.Songs.Length - 1 ? section.Songs[i + 1] : null;
 
@@ -71,6 +72,8 @@ public static class Chunker
                 lines.Add(new(new_num, continuous_new_num, text_end, LineType.NextSong, false, false, line_end.NotMy));
             }
 
+            //CLAIRE 20260729
+            //yield return song with { Lines = [.. lines] }; ORIGINAL
             yield return song with { Lines = [.. lines] };
         }
     }
@@ -115,7 +118,9 @@ public static class Chunker
         string[] elements = [section.SectionName, song.SongName];
         var title = String.Join(", ", elements.Where(a => !String.IsNullOrEmpty(a)));
         // return $"{title} ({(screen_number + 1)})";
-        return $"?????{title}"; // Claire this line removes the chunk number
+        return $"{title}";
+        // Claire the above line DIRECTLY affects the FIRST part of the header in both the SortField and Lines fields
+        
     }
 }
 
