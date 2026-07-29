@@ -32,8 +32,9 @@ public static class Chunker
         {
             var lines = new List<MyLine>();
 
-            //var song = section.Songs[i]; ORIGINAL
-            var song = parameters;
+
+            //JEREMIAH
+            var song = section.Songs[i];
             var prev_song = i > 0 ? section.Songs[i - 1] : null;
             var next_song = i < section.Songs.Length - 1 ? section.Songs[i + 1] : null;
 
