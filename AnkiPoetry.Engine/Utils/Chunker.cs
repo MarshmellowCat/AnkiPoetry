@@ -51,7 +51,7 @@ public static class Chunker
             }
 
             var first = song.Lines[0];
-            //lines.Add(first with { IsFirst = true });
+            lines.Add(first with { IsFirst = true });
 
             if (song.Lines.Length > 1)
             {
