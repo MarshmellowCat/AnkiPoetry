@@ -94,14 +94,17 @@ public class LineCreator : BaseCreator<Card>
         foreach (var line in list)
         {
             var text = GetLineText(line.Text, line, parameters);
+           
             //if (i == 0)
             {
                 //text = FirstWordGetLineText(line.Text, line, parameters);
             }
 
-            //if (line.IsFirst)
-            //sb.Append("<hr>");
-
+            if (line.IsFirst)
+            {
+            sb.Append("<hr>");
+            }
+            
             sb.Append(text);
 
             //if (line.IsLast)
