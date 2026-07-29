@@ -111,10 +111,11 @@ public static class Chunker
 
     private static string CreateHeader(MySection section, MySong song, int screen_number)
     {
+        //THE PLACE THAT HAS CreateHeader # and ## Info
         string[] elements = [section.SectionName, song.SongName];
         var title = String.Join(", ", elements.Where(a => !String.IsNullOrEmpty(a)));
         // return $"{title} ({(screen_number + 1)})";
-        return $"{title}"; // Claire this line removes the chunk number
+        return $"?????{title}"; // Claire this line removes the chunk number
     }
 }
 
