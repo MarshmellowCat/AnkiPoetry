@@ -101,7 +101,7 @@ public static class Chunker
             }
             else
             {
-                result.Add(line with { IsFirst = (result.Count == 1) });
+                //result.Add(line with { IsFirst = (result.Count == 1) });
             }
         }
 
