@@ -95,14 +95,15 @@ public class LineCreator : BaseCreator<Card>
         {
             var text = GetLineText(line.Text, line, parameters);
            
-            //if (i == 0)
+            if (i == 0)
             {
                 //text = FirstWordGetLineText(line.Text, line, parameters);
+                sb.Append("<br><br>");
             }
 
-            if (line.IsFirst)
+            //if (line.IsFirst)
             {
-            sb.Append("<br><br>");
+            //sb.Append("<br><br>");
             }
 
             sb.Append(text);
